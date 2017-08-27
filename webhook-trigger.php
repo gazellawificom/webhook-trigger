@@ -1,5 +1,5 @@
 <?php
-// GAZELLA FIELDS 
+// Trigger Parameters
 //?name={name}&phone={phone}&email={email}
 
 
