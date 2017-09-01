@@ -44,14 +44,11 @@ $userID = "XXX";
 
 ### Parameters
 
-**{name}** - Visitor Name
-**{time}** - Visitor Date / Time
-
-**{phone}** - Visitor Phone
-
-**{gender}** - Visitor Gender
-
-**{birthday}** - Visitor Birthday
+**{name}** - Visitor Name<br />
+**{time}** - Visitor Date / Time<br />
+**{phone}** - Visitor Phone<br />
+**{gender}** - Visitor Gender<br />
+**{birthday}** - Visitor Birthday<br />
 
 **{email}** - Visitor E-mail
 
