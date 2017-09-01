@@ -45,7 +45,6 @@ $userID = "XXX";
 ### Parameters
 
 **{name}** - Visitor Name
-
 **{time}** - Visitor Date / Time
 
 **{phone}** - Visitor Phone
