@@ -49,16 +49,11 @@ $userID = "XXX";
 **{phone}** - Visitor Phone<br />
 **{gender}** - Visitor Gender<br />
 **{birthday}** - Visitor Birthday<br />
-
-**{email}** - Visitor E-mail
-
-**{id}** - Visitor Device ID
-
-**{type}** - Visitor Device Type
-
-**{browser}** - Visitor Device Browser
-
-**{os}** - Visitor Device OS
+**{email}** - Visitor E-mail<br />
+**{id}** - Visitor Device ID<br />
+**{type}** - Visitor Device Type<br />
+**{browser}** - Visitor Device Browser<br />
+**{os}** - Visitor Device OS<br />
 
 Now that your file will look something like the code below - you may test it by
 simply visiting the file i.e. in your browser navigating to: yourcustomsite.com/project/gazella-sso.php
