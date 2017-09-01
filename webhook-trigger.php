@@ -3,6 +3,8 @@
 //?name={name}&phone={phone}&email={email}
 
 
+
+
 $gets = $_GET;
 file_put_contents('data.log', $gets);  
  
