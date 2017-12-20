@@ -2,8 +2,19 @@
 // Trigger Parameters
 //?name={name}&time={time}&phone={phone}&birthday={birthday}&type={type}&os={os}&browser={browser}&gender={gender}&email={email}&device_id={id}&custom1={custom1}&custom2={custom2}&custom3={custom3}&check_type={check_type}
 
-
 $gets = $_GET;
+
+//======================================================================//
+// CONFIGURATION
+//======================================================================//  
+
+/* This is the email address that this data will be posted to */
+$sendto = 'XXXXXX';  // your@email.com
+
+
+//======================================================================//
+// PARAMETERS / QUERY STRINGS
+//======================================================================//
 
 $name = strip_tags($_GET['name']);
 isset($name) || $name = ' ';
@@ -49,9 +60,7 @@ isset($check_type) || $check_type = ' ';
 
 
  
-// Example to email queries to yourself
-$to      = 'youremail@domain.com';  /// YOUR EMAIL HERE
-
+// Email Message Configuration
 $subject = 'Trigger Test';
 $headers = "MIME-Version: 1.0\r\n";
 $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
@@ -72,7 +81,7 @@ Custom Field 2: $custom2 <br>
 Custom Field 3: $custom3 <br>
 Check Type: $check_type <br>
 ";
-mail($to, $subject, $message, $headers);
+mail($sendto, $subject, $message, $headers);
 
 
 // Example to save queries on disk

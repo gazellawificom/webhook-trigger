@@ -4,45 +4,18 @@ Trigger Webhook example
 
 ## Getting Started
 
-Setup a Webhook trigger within the triggers page of your account.
+Setup a Webhook trigger within the triggers page of your account. Triggers make it easy for a custom action / script or form to be filled out to parsed to from each individual visit. 
+This is good if Gazella does not provide your specific integration that you are looking for and you would like to transfer and send the data into any other format realtime. 
 
-### Prerequisites
-
-Gazella Webhook Trigger:
-> Setup here: https://sys.gazellawifi.com/triggers/
-
-A users ID "$userID":
-> If you have users get the "ID" from one here: http://sys.yoursystemurl.com/manage-user-accounts/
-
-### Installing
-
-Upload "gazella-sso.php" into your project folder. Example: yourcustomsite.com/project/gazella-sso.php.
-Once the file is uploaded you may then edit "gazella-sso.php" by replacing the variables with the 'XXXXXXX' values in the "// CONFIGURATION" 
-section of the file with your own variables:
-
-```
-//======================================================================//
-// CONFIGURATION
-//======================================================================//  
-
-/* This is the token that you can find under your Account Settings */
-$apiKey = 'XXXXXXXXXXXXXXXXXXXXXXXXXXX';
-
-/* Insert your reseller sys login url here */
-$sysURL = "XXXXXXXXXXXXXX";
-
-/* Insert the user ID that you'd like to authenticate as */ 
-$userID = "XXX";
-```
 
 ### Parameters / Query Strings
 
 **{name}** - Visitor Name<br />
 **{time}** - Visitor Date / Time<br />
 **{phone}** - Visitor Phone<br />
+**{email}** - Visitor E-mail<br />
 **{gender}** - Visitor Gender<br />
 **{birthday}** - Visitor Birthday<br />
-**{email}** - Visitor E-mail<br />
 **{id}** - Visitor Device ID<br />
 **{type}** - Visitor Device Type<br />
 **{browser}** - Visitor Device Browser<br />
@@ -53,30 +26,39 @@ $userID = "XXX";
 **{check_type}** - Visitor Auth Type. May be one of these: "facebook", "phone", "email", "code"<br />
 
 
-Now that your file will look something like the code below - you may test it by
-simply visiting the file i.e. in your browser navigating to: yourcustomsite.com/project/gazella-sso.php
-If successful will redirect you (now logged in) as the user that you specified as variable $userID.
+Now that your webhook url will look something like this assuming all parameters are used: 
+http://yourcustomsite.com/project/webhook-trigger-example.php?name={name}&time={time}&phone={phone}&birthday={birthday}&type={type}&os={os}&browser={browser}&gender={gender}&email={email}&device_id={id}&custom1={custom1}&custom2={custom2}&custom3={custom3}&check_type={check_type} 
+
+
+
+
+### Installing
+
+Upload "webhook-trigger-example.php" into your project folder. Example: http://yourcustomsite.com/project/webhook-trigger-example.php.
+Once the file is uploaded you may then edit "gazella-sso.php" by replacing the variables with the 'XXXXXXX' values with your email address.
 
 ```
 //======================================================================//
 // CONFIGURATION
 //======================================================================//  
 
-/* This is the token that you can find under your account Settings */
-$apiKey = '3948_93V4bbbbba747023450bd'; 
+/* This is the email address that this data will be posted to */
+$sendto = 'XXXXXX';  // your@email.com
 
-/* Insert your reseller sys login url here */
-$sysURL = "sys.gazellawifi.com";
-
-/* Insert the user ID that you'd like to authenticate as */ 
-$userID = "293";
 ```
 
+### Configuration
 
-## Versioning
+Gazella Webhook Trigger:
+> Setup here: https://sys.gazellawifi.com/triggers/
 
-We use Gazella API v1.0 for this example. See Documentation here: https://sys.gazellawifi.com/docs/api/
 
-## License
+```
+//======================================================================//
+// CONFIGURATION
+//======================================================================//  
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+/* This is the email address that this data will be posted to */
+$sendto = 'your@email.com';  // your@email.com
+
+```
