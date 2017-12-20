@@ -4,19 +4,12 @@ Trigger Webhook example
 
 ## Getting Started
 
-If you have a Partner or Reseller account with GazellaWifi.com - These instructions will allow to be able to programmatically login as one of your users in one click. This means
-all you need is one of your sub users IDs and you do not need their username and or password anymore to simply access their account. Use this for implmentation into your own system to eliminate the hassle of your usiers having multiple logins. 
-
-### Server Requirements
-Php 5.6 or newer
+Setup a Webhook trigger within the triggers page of your account.
 
 ### Prerequisites
 
-Gazella Partner or Reseller Account:
-> Purchase here: https://gazellawifi.com/
-
-Your Gazella API key "$apiKey":
-> Get this here: https://sys.yoursystemurl.com/account-settings/
+Gazella Webhook Trigger:
+> Setup here: https://sys.gazellawifi.com/triggers/
 
 A users ID "$userID":
 > If you have users get the "ID" from one here: http://sys.yoursystemurl.com/manage-user-accounts/
@@ -42,7 +35,7 @@ $sysURL = "XXXXXXXXXXXXXX";
 $userID = "XXX";
 ```
 
-### Parameters
+### Parameters / Query Strings
 
 **{name}** - Visitor Name<br />
 **{time}** - Visitor Date / Time<br />
@@ -54,6 +47,11 @@ $userID = "XXX";
 **{type}** - Visitor Device Type<br />
 **{browser}** - Visitor Device Browser<br />
 **{os}** - Visitor Device OS<br />
+**{custom1}}** - Custom Field 1<br />
+**{custom2}** - Custom Field 2<br />
+**{custom3}** - Custom Field 3<br />
+**{check_type}** - Visitor Auth Type. May be one of these: "facebook", "phone", "email", "code"<br />
+
 
 Now that your file will look something like the code below - you may test it by
 simply visiting the file i.e. in your browser navigating to: yourcustomsite.com/project/gazella-sso.php
