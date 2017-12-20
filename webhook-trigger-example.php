@@ -1,28 +1,9 @@
 <?php
 // Trigger Parameters
-//?name={name}&phone={phone}&email={email}
-
-
+//?name={name}&time={time}&phone={phone}&birthday={birthday}&type={type}&os={os}&browser={browser}&gender={gender}&email={email}&device_id={id}&custom1={custom1}&custom2={custom2}&custom3={custom3}&check_type={check_type}
 
 
 $gets = $_GET;
-file_put_contents('data.log', $gets);  
- 
-  
-
-if(isset($_GET['email']) || isset($_GET['phone']) || isset($_GET['name'])) {
-//name=""
-//firstname
-//lastname
-//email
-//mobile1
-//mobile2
-//mobile3 
-//name="user_guid" type="hidden" value="" />
-///name="keyword" type="hidden"  value="" />
-//name="shortcode" type="hidden" value="" />    
-
-
 
 $name = strip_tags($_GET['name']);
 isset($name) || $name = ' ';
@@ -30,73 +11,71 @@ isset($name) || $name = ' ';
 $email = strip_tags($_GET['email']); 
 isset($phone) || $phone = ' ';
 
+$time = strip_tags($_GET['time']);
+isset($time) || $time = ' ';
 
-$phone = strip_tags($_GET['phone']); 
+$phone = strip_tags($_GET['phone']);
 isset($phone) || $phone = ' ';
 
+$birthday = strip_tags($_GET['birthday']);
+isset($birthday) || $birthday = ' ';
+
+$type = strip_tags($_GET['type']);
+isset($type) || $type = ' ';
+
+$os = strip_tags($_GET['os']);
+isset($os) || $os = ' ';
+
+$browser = strip_tags($_GET['browser']);
+isset($browser) || $browser = ' ';
+
+$gender = strip_tags($_GET['gender']);
+isset($gender) || $gender = ' ';
+
+$device_id = strip_tags($_GET['device_id']);
+isset($device_id) || $device_id = ' ';
+
+$custom1 = strip_tags($_GET['custom1']);
+isset($custom1) || $custom1 = ' ';
+
+$custom2 = strip_tags($_GET['custom2']);
+isset($custom2) || $custom2 = ' ';
+
+$custom3 = strip_tags($_GET['custom3']);
+isset($custom3) || $custom3 = ' ';
+
+$check_type = strip_tags($_GET['check_type']);
+isset($check_type) || $check_type = ' ';
+
+
  
- 
-$number = strip_tags($phone);
-$mobile = str_split($number,3); // Splits the number into a new element every 3 characters
- 
-// POST IT ALL
- 
-//create array of data to be posted
-$post_data['firstname'] = strip_tags($_GET['name']);
-$post_data['lastname'] = '';
-$post_data['email'] = strip_tags($_GET['email']); 
-$post_data['mobile1'] = $mobile[0]; 
-$post_data['mobile2'] = $mobile[1]; 
-$post_data['mobile3'] = substr($number,6);   
+// Example to email queries to yourself
+$to      = 'youremail@domain.com';  /// YOUR EMAIL HERE
 
-// needed
-$post_data['user_guid'] = strip_tags('{0C33DB5F-5B80-4D88-B4F7-1781981A6718}');
-$post_data['keyword'] = strip_tags('Gazella');
-$post_data['shortcode'] = strip_tags('55678');
-  
+$subject = 'Trigger Test';
+$headers = "MIME-Version: 1.0\r\n";
+$headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
 
-//exit(); 
- 
-//traverse array and prepare data for posting (key1=value1)
-foreach ( $post_data as $key => $value) {
-    $post_items[] = $key . '=' . $value;
-}
+$message = "
+Name: $name <br>
+Email: $email <br>
+Time: $time <br>
+Phone: $phone <br>
+Birthday: $birthday <br>
+Type: $type <br>
+OS: $os <br>
+Browser: $browser <br>
+Gender: $gender <br>
+Device ID: $device_id <br>
+Custom Field 1: $custom1 <br>
+Custom Field 2: $custom2 <br>
+Custom Field 3: $custom3 <br>
+Check Type: $check_type <br>
+";
+mail($to, $subject, $message, $headers);
 
-//create the final string to be posted using implode()
-$post_string = implode ('&', $post_items);
 
-//create cURL connection
-$curl_connection = 
- curl_init('http://yourwebsite.com/form.php');
-
-//set options
-
-curl_setopt($curl_connection, CURLOPT_CONNECTTIMEOUT, 30);
-curl_setopt($curl_connection, CURLOPT_USERAGENT, 
-  "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)");
-curl_setopt($curl_connection, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($curl_connection, CURLOPT_SSL_VERIFYPEER, false);
-curl_setopt($curl_connection, CURLOPT_FOLLOWLOCATION, 1);
-
-//set data to be posted
-curl_setopt($curl_connection, CURLOPT_POSTFIELDS, $post_string);
-
-//perform our request
-$result = curl_exec($curl_connection);
-
-//show information regarding the request
-//print_r(curl_getinfo($curl_connection));
-//echo curl_errno($curl_connection) . '-' . 
-                curl_error($curl_connection);
-				
-				echo $result;
-
-//close the connection
-curl_close($curl_connection);
-
-} else {
-echo 'Not Data input';
-}
-
+// Example to save queries on disk
+file_put_contents('data.log', $gets);  
 
 ?>
