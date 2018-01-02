@@ -31,7 +31,7 @@ Php 5.6 or newer
 ### Installing
 
 Upload "webhook-trigger-example.php" into your project folder. Example: http://yourcustomsite.com/project/webhook-trigger-example.php.
-Once the file is uploaded you may then edit "gazella-sso.php" by replacing the variables with the 'XXXXXXX' values with your email address.
+Once the file is uploaded you may then edit "webhook-trigger-example.php" by replacing the variables with the 'XXXXXXX' values with your email address.
 
 ```
 //======================================================================//
